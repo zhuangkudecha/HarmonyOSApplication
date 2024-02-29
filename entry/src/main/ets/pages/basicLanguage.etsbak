@@ -1,0 +1,138 @@
+//console.log('说明', 'helloword');
+import constant from '@ohos.bluetooth.constant'
+import font from '@ohos.font'
+
+// let name: number = 10.0
+// let 变量名: 类型 = 值
+// let name: string = 'this is zkdc'
+// let chose: boolean =
+let name: string = 'zkdc'
+console.log('my name is', name)
+
+let isconsole: boolean = true
+console.log('isconsole', isconsole)
+
+name = 'zkdwhh'
+console.log('now name is', name)
+
+const PI: number = 3.31415926
+console.log('PI', PI)
+
+const COMPANY: string = 'HUAWEI'
+console.log('Company Name', COMPANY)
+
+let names: string[] = ['xiaoming', 'xiaohong', 'xiaoqiang']
+console.log('name1', names[0])
+console.log('name2', names[1])
+
+
+function consolePrint(num: number, price: number) {
+  // console.log('print stars', '*')
+  // console.log('print stars', '**')
+  return num * price
+
+}
+
+let result: number = consolePrint(4, 20)
+console.log('result is', result)
+
+let buy = (num: number, price: number) => {
+  return num * price
+}
+// i prefer standard function rather than arrow function
+console.log('arrow function result is', buy(1, 50))
+
+
+
+interface Person {
+  name: string
+  age: number
+  sex: string
+
+  changeName: (newName: string) => void
+
+  dance:() => void
+}
+
+
+let zkdc: Person = {
+  name: 'zkdc',
+  age: 25,
+  sex: 'male',
+  changeName: (newName: string) => {
+    console.log('old name is', zkdc.name)
+    zkdc.name = newName
+    console.log('new name is', zkdc.name)
+  },
+  dance: () => {
+    console.log(zkdc.name, 'begin dancing');
+  }
+}
+
+
+console.log('zkdc name is', zkdc.name)
+console.log('zkdc age is', zkdc.age)
+console.log('zkdc set is', zkdc.sex)
+
+zkdc.changeName('zkdwhh')
+zkdc.dance()
+
+
+// 联合类型可以约定可选项范围
+let gender: 'man' | 'woman' | 'unknow'
+gender = 'man'
+
+
+let score: string | number
+
+score = 'zkdc'
+console.log('score', score)
+score = 12
+console.log('score', score)
+
+
+
+// 枚举类型
+enum ThemColor {
+  Red = '#ff0f29',
+  Orange = '#ff7100',
+  Green = '#30b30e'
+}
+
+let ChoseColor: ThemColor = ThemColor.Red
+console.log(ChoseColor)
+@Entry
+@Component
+struct basicLanguage {
+  @State message: string = 'Hello World';
+
+  build() {
+    Column(){
+      Text('小说简介')
+        .width('100%')
+        .backgroundColor(Color.Green)
+        .fontSize(20)
+        .fontWeight(FontWeight.Bold) // 100~900
+        .fontStyle(FontStyle.Italic)
+      Row(){
+        Text('玄幻')
+          .width(40)
+          .height(30)
+          .backgroundColor(Color.Orange)
+        Text('废土')
+          .width(40)
+          .height(30)
+          .backgroundColor(Color.Pink)
+        Text('情感')
+          .width(40)
+          .height(30)
+          .backgroundColor(Color.Yellow)
+        Text('都市')
+          .width(40)
+          .height(30)
+          .backgroundColor(Color.Grey)
+      }.width('100%')
+    }
+    .width('100%')
+  }
+}
